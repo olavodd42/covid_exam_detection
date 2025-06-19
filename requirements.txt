@@ -1,0 +1,7 @@
+tensorflow-datasets
+kaggle
+matplotlib
+scikit-learn
+kagglehub
+numpy
+matplotlib
