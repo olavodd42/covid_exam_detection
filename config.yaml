@@ -1,0 +1,78 @@
+# Configuração para treinamento do modelo COVID-19
+
+# Parâmetros do dataset
+dataset:
+  img_size: [224, 224]
+  batch_size: 16
+  validation_split: 0.2
+  test_split: 0.1
+  seed: 123
+  
+# Parâmetros do modelo
+model:
+  type: "efficientnet"  # options: efficientnet, resnet, vgg, custom
+  input_shape: [224, 224, 3]
+  num_classes: 4
+  dropout_rate: 0.3
+  use_batch_norm: true
+  
+# Parâmetros de treinamento
+training:
+  epochs: 50
+  fine_tune_epochs: 10
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  use_mixed_precision: true
+  
+# Data augmentation
+augmentation:
+  enabled: true
+  horizontal_flip: true
+  vertical_flip: false
+  rotation_range: 0.1
+  zoom_range: 0.1
+  contrast_range: 0.1
+  brightness_range: 0.1
+  
+# Callbacks
+callbacks:
+  early_stopping:
+    patience: 10
+    monitor: "val_loss"
+    restore_best_weights: true
+    
+  reduce_lr:
+    factor: 0.5
+    patience: 5
+    min_lr: 0.0000001
+    monitor: "val_loss"
+    
+  model_checkpoint:
+    monitor: "val_accuracy"
+    save_best_only: true
+    save_weights_only: false
+    
+  tensorboard:
+    write_graph: true
+    write_images: true
+    histogram_freq: 1
+    
+# Otimizações
+optimization:
+  use_mixed_precision: true
+  prefetch_buffer_size: "AUTOTUNE"
+  cache_dataset: true
+  
+# Logging
+logging:
+  level: "INFO"
+  save_to_file: true
+  log_filename: "training.log"
+  
+# Paths
+paths:
+  data_dir: "data"
+  model_dir: "models"
+  log_dir: "logs"
+  results_dir: "results"
+  plots_dir: "plots"

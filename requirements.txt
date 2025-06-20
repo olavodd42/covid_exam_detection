@@ -1,7 +1,38 @@
-tensorflow-datasets
-kaggle
-matplotlib
-scikit-learn
-kagglehub
-numpy
-matplotlib
+# Core ML libraries
+tensorflow>=2.15.0
+tensorflow-datasets>=4.9.0
+keras>=2.15.0
+
+# Data science and visualization
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+scikit-learn>=1.3.0
+pillow>=10.0.0
+
+# Dataset download
+kaggle>=1.5.16
+kagglehub>=0.2.0
+
+# Utilities and development
+tqdm>=4.65.0
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# for advanced visualizations
+plotly>=5.15.0
+tensorboard>=2.15.0
+
+# for model optimization
+tensorflow-model-optimization>=0.7.4
+
+#for hyperparameter tuning
+optuna>=3.3.0
+keras-tuner>=1.4.0
+
+# Development and testing
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0
